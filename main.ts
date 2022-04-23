@@ -87,7 +87,7 @@ namespace Drones {
     }
     //% block="Setting UAV power $power \\%"
     //% power.min=0 power.max=100
-    //% weight=90 group="Basic"
+    //% weight=95 group="Basic"
     export function UAV_speed(power: number): void {
         serial.readString()
         let txBuff = pins.createBuffer(5)
