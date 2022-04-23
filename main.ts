@@ -85,6 +85,20 @@ namespace Drones {
             }
         })
     }
+    //% block="Setting UAV power $power \\%"
+    //% power.min=0 power.max=100
+    //% weight=90 group="Basic"
+    export function UAV_speed(power: number): void {
+        serial.readString()
+        let txBuff = pins.createBuffer(5)
+        txBuff[0] = 0xEF
+        txBuff[1] = 1
+        txBuff[2] = 0x01
+        txBuff[3] = 0x03
+        txBuff[4] = power
+        serial.writeBuffer(txBuff)
+        WaitCellback()
+    }
     /**
      * Shows a rainbow pattern on all LEDs.
      * @param startHue the start hue value for the rainbow, eg: 1
